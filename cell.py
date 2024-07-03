@@ -10,7 +10,10 @@ class Cell:
         self.p2 = None
         self.win = win
     
-        #WTF Python, no method/constructor overloading???
+    def __repr__(self):
+        return f"Cell({self.p1}, {self.p2})"
+    def __str__(self):
+        return f"Cell({self.p1}, {self.p2})"
 
     def l(self):
         self.lWall = True

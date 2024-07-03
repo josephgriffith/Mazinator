@@ -1,13 +1,14 @@
 from graphics import Point, Line, Window
 from cell import Cell
+from maze import Maze
 
 def main():
     w = Window(1600, 900)
-    p1 = Point(0, 0)
-    p2 = Point(100, 100)
-    p3 = Point(200, 50)
-    p4 = Point(200, 500)
-    p5 = Point(0, 300)
+    # p1 = Point(0, 0)
+    # p2 = Point(100, 100)
+    # p3 = Point(200, 50)
+    # p4 = Point(200, 500)
+    # p5 = Point(0, 300)
 
     # w.drawLine(Line(p1, p2), "red")
     # w.drawLine(Line(p2, p3), "green")
@@ -38,6 +39,9 @@ def main():
     c3.b()
     c3.draw(Point(1125, 475), Point(1175, 525))
     c2.drawMove(c3, True)
+
+    m = Maze(25, 25, 5, 5, 25, 25, w)       
+    #TODO: track down why maze doesn't draw... it's calling the draw command with what looks like good data
 
 
     w.waitForClose()

@@ -5,6 +5,11 @@ class Point:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+    def __repr__(self):
+        return f"Point({self.x}, {self.y})"
+    # def __str__(self):
+        # return f"Point({self.x}, {self.y})"
+
 
 class Line:
     def __init__(self, p1, p2):
@@ -23,14 +28,14 @@ class Window:
         self.canvas = Canvas(self.root, width=width, height=height, bg='dark sea green')
         self.canvas.pack()
         self.running = False
-    def update(self):
+    def redraw(self):
         self.root.update_idletasks()
         self.root.update()
+        sleep(0.005)
     def waitForClose(self):
         self.running = True
         while self.running:
-            self.update()
-            sleep(0.001)
+            self.redraw()
     def close(self):
         self.running = False
     def drawLine(self, line, color="black"):
