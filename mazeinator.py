@@ -19,19 +19,25 @@ def main():
     c.r()
     c.draw(Point(100, 100), Point(800, 800))
     c.reset()
-
     c.t()
     c.b()
     c.draw(Point(150, 150), Point(750, 750))
-
     c.l()
     c.bWall = False
     c.draw(Point(200, 200), Point(700, 700))
     c.reset()
-
     c.r()
     c.b()
     c.draw(Point(250, 250), Point(650, 650))
+
+    c2 = Cell(w)
+    c2.all()
+    c2.draw(Point(1125, 425), Point(1175, 475))
+    c.drawMove(c2)
+    c3 = Cell(w)
+    c3.b()
+    c3.draw(Point(1125, 475), Point(1175, 525))
+    c2.drawMove(c3, True)
 
 
     w.waitForClose()

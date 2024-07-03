@@ -20,10 +20,15 @@ class Cell:
         self.tWall = True
     def b(self):    
         self.bWall = True
-        
+    def all(self):
+        self.lWall = True
+        self.rWall = True
+        self.tWall = True
+        self.bWall = True
+
     def draw(self, p1, p2):
-        # self.p1 = p1
-        # self.p2 = p2
+        self.p1 = p1
+        self.p2 = p2
         if self.lWall:
             self.win.drawLine(Line(p1, Point(p1.x, p2.y)))       #(self.p1, Point(self.p1.x, self.p2.y)))  
         if self.rWall:
@@ -44,5 +49,15 @@ class Cell:
         self.bWall = False
         self.p1 = None
         self.p2 = None
+
+    def drawMove(self, cell, undo=False):
+        p1 = Point((self.p1.x+self.p2.x)/2, (self.p1.y+self.p2.y)/2)
+        p2 = Point((cell.p1.x+cell.p2.x)/2, (cell.p1.y+cell.p2.y)/2)
+        color = "red"
+        if undo:
+            color = "grey"
+        self.win.drawLine(Line(p1, p2), color)
+
+
 
 
