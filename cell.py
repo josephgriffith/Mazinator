@@ -1,7 +1,7 @@
 from graphics import Point, Line
 
 class Cell:
-    def __init__(self, win):
+    def __init__(self, win=None):
         self.lWall = False
         self.rWall = False
         self.tWall = False
@@ -28,7 +28,12 @@ class Cell:
         self.rWall = True
         self.tWall = True
         self.bWall = True
-
+    def none(self):
+        self.lWall = False
+        self.rWall = False
+        self.tWall = False
+        self.bWall = False
+        
     def draw(self, p1, p2):
         self.p1 = p1
         self.p2 = p2

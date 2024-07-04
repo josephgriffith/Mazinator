@@ -2,7 +2,7 @@ from cell import Cell
 from graphics import Point
 
 class Maze:
-    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win):
+    def __init__(self, x1, y1, num_rows, num_cols, cell_size_x, cell_size_y, win=None):
         self.x1 = x1
         self.y1 = y1
         self.num_rows = num_rows
@@ -17,7 +17,9 @@ class Maze:
         for i in range(self.num_rows):
             row = []
             for j in range(self.num_cols):
-                row.append(Cell(self.win))
+                c = Cell(self.win)
+                c.all()
+                row.append(c)
             self._cells.append(row)
         for i in range(self.num_rows):
             for j in range(self.num_cols):
@@ -30,7 +32,7 @@ class Maze:
         x2 = x1 + self.cell_size_x
         y2 = y1 + self.cell_size_y
         self._cells[i][j].draw(Point(x1, y1), Point(x2, y2))
-        print(f"Drawing cell ({x1}, {y1}) to ({x2}, {y2})")
+        # print(f"Drawing cell ({x1}, {y1}) to ({x2}, {y2})")
         self._animate()
 
     def _animate(self):

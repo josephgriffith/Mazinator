@@ -31,7 +31,7 @@ class Window:
     def redraw(self):
         self.root.update_idletasks()
         self.root.update()
-        sleep(0.005)
+        sleep(0.0001)
     def waitForClose(self):
         self.running = True
         while self.running:
