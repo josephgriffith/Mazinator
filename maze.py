@@ -12,7 +12,7 @@ class Maze:
         self.win = win
         self._cells = []
         self._createCells()
-
+        self._breakEntranceAndExit()
     def _createCells(self):
         for i in range(self.num_rows):
             row = []
@@ -25,7 +25,6 @@ class Maze:
             for j in range(self.num_cols):
                 self._drawCell(i, j)
         # print(self._cells)
-
     def _drawCell(self, i, j):
         x1 = self.x1 + j * self.cell_size_x
         y1 = self.y1 + i * self.cell_size_y
@@ -34,10 +33,13 @@ class Maze:
         self._cells[i][j].draw(Point(x1, y1), Point(x2, y2))
         # print(f"Drawing cell ({x1}, {y1}) to ({x2}, {y2})")
         self._animate()
-
     def _animate(self):
         self.win.redraw()
-
+    def _breakEntranceAndExit(self):
+        self._cells[0][0].tWall = False
+        self._drawCell(0, 0)
+        self._cells[self.num_rows-1][self.num_cols-1].bWall = False
+        self._drawCell(self.num_rows-1, self.num_cols-1)
 
 
 

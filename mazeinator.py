@@ -42,7 +42,7 @@ def main():
 
     m = Maze(25, 25, 34, 62, 25, 25, w)       
     #TODO: track down why maze doesn't draw... it's calling the draw command with what looks like good data
-
+    
 
     w.waitForClose()
 

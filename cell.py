@@ -1,4 +1,4 @@
-from graphics import Point, Line
+from graphics import Point, Line, BGCOLOR
 
 class Cell:
     def __init__(self, win=None):
@@ -37,15 +37,10 @@ class Cell:
     def draw(self, p1, p2):
         self.p1 = p1
         self.p2 = p2
-        if self.lWall:
-            self.win.drawLine(Line(p1, Point(p1.x, p2.y)))       #(self.p1, Point(self.p1.x, self.p2.y)))  
-        if self.rWall:
-            self.win.drawLine(Line(Point(p2.x, p1.y), p2))       #(Point(self.p2.x, self.p1.y), self.p2))
-        if self.tWall:
-            self.win.drawLine(Line(p1, Point(p2.x, p1.y)))       #(self.p1, Point(self.p2.x, self.p1.y)))
-        if self.bWall:
-            self.win.drawLine(Line(Point(p1.x, p2.y), p2))       #(Point(self.p1.x, self.p2.y), self.p2))
-        # self.reset()
+        self.win.drawLine(Line(p1, Point(p1.x, p2.y)))  if self.lWall else  self.win.drawLine(Line(p1, Point(p1.x, p2.y)), BGCOLOR)
+        self.win.drawLine(Line(Point(p2.x, p1.y), p2))  if self.rWall else  self.win.drawLine(Line(Point(p2.x, p1.y), p2), BGCOLOR)
+        self.win.drawLine(Line(p1, Point(p2.x, p1.y)))  if self.tWall else  self.win.drawLine(Line(p1, Point(p2.x, p1.y)), BGCOLOR)
+        self.win.drawLine(Line(Point(p1.x, p2.y), p2))  if self.bWall else  self.win.drawLine(Line(Point(p1.x, p2.y), p2), BGCOLOR)
     
     # def draw(self, x1, y1, x2, y2):
     #     self.draw(Point(x1, y1), Point(x2, y2))

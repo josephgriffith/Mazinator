@@ -1,6 +1,8 @@
 from tkinter import Tk, BOTH, Canvas
 from time import sleep
 
+BGCOLOR = 'dark sea green'
+
 class Point:
     def __init__(self, x, y):
         self.x = x
@@ -25,13 +27,13 @@ class Window:
         self.root = Tk()
         self.root.title("AMAZEY WINDOW")
         self.root.protocol("WM_DELETE_WINDOW", self.close)
-        self.canvas = Canvas(self.root, width=width, height=height, bg='dark sea green')
+        self.canvas = Canvas(self.root, width=width, height=height, bg=BGCOLOR)
         self.canvas.pack()
         self.running = False
     def redraw(self):
         self.root.update_idletasks()
         self.root.update()
-        sleep(0.0001)
+        sleep(0.0005)
     def waitForClose(self):
         self.running = True
         while self.running:

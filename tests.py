@@ -25,6 +25,15 @@ class Tests(unittest.TestCase):
         self.assertEqual(len(m._cells), rows)
         self.assertEqual(len(m._cells[0]), cols)
 
+    def testMazeBreakStartStop1(self):
+        rows = 5
+        cols = 15
+        w = Window(256, 256)
+        m = Maze(64, 64, rows, cols, 32, 32, w)
+        # m._breakEntranceAndExit()
+        self.assertEqual(m._cells[0][0].tWall, False)
+        self.assertEqual(m._cells[rows-1][cols-1].bWall, False)
+
 
 
 
