@@ -3,7 +3,6 @@ from cell import Cell
 from maze import Maze
 
 def main():
-    w = Window(1600, 900)
     # p1 = Point(0, 0)
     # p2 = Point(100, 100)
     # p3 = Point(200, 50)
@@ -40,7 +39,11 @@ def main():
     # c3.draw(Point(1125, 475), Point(1175, 525))
     # c2.drawMove(c3, True)
 
-    m = Maze(25, 25, 34, 62, 25, 25, w)       
+    w = Window(1600, 900, .05)     #higher breaks == slower
+    # m = Maze(25, 25, 34, 62, 25, 25, w)
+    m = Maze(32, 32, 8, 8, 32, 32, w, 64)
+    # m._breakWallsRec(0, 0)
+    m.resetVisited()
     #TODO: track down why maze doesn't draw... it's calling the draw command with what looks like good data
     
 

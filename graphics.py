@@ -21,9 +21,10 @@ class Line:
         canvas.create_line(self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=color, width=2)
     
 class Window:
-    def __init__(self, width, height):
+    def __init__(self, width, height, breaks=0.0005):
         self.x = width
         self.y = height
+        self.speed = breaks
         self.root = Tk()
         self.root.title("AMAZEY WINDOW")
         self.root.protocol("WM_DELETE_WINDOW", self.close)
@@ -33,7 +34,7 @@ class Window:
     def redraw(self):
         self.root.update_idletasks()
         self.root.update()
-        sleep(0.0005)
+        sleep(self.speed)
     def waitForClose(self):
         self.running = True
         while self.running:

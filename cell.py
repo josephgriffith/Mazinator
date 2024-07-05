@@ -9,6 +9,7 @@ class Cell:
         self.p1 = None
         self.p2 = None
         self.win = win
+        self.visited = False
     
     def __repr__(self):
         return f"Cell({self.p1}, {self.p2})"
@@ -34,13 +35,13 @@ class Cell:
         self.tWall = False
         self.bWall = False
         
-    def draw(self, p1, p2):
+    def draw(self, p1, p2, color="black"):
         self.p1 = p1
         self.p2 = p2
-        self.win.drawLine(Line(p1, Point(p1.x, p2.y)))  if self.lWall else  self.win.drawLine(Line(p1, Point(p1.x, p2.y)), BGCOLOR)
-        self.win.drawLine(Line(Point(p2.x, p1.y), p2))  if self.rWall else  self.win.drawLine(Line(Point(p2.x, p1.y), p2), BGCOLOR)
-        self.win.drawLine(Line(p1, Point(p2.x, p1.y)))  if self.tWall else  self.win.drawLine(Line(p1, Point(p2.x, p1.y)), BGCOLOR)
-        self.win.drawLine(Line(Point(p1.x, p2.y), p2))  if self.bWall else  self.win.drawLine(Line(Point(p1.x, p2.y), p2), BGCOLOR)
+        self.win.drawLine(Line(p1, Point(p1.x, p2.y)), color)  if self.lWall else  self.win.drawLine(Line(p1, Point(p1.x, p2.y)), BGCOLOR)
+        self.win.drawLine(Line(Point(p2.x, p1.y), p2), color)  if self.rWall else  self.win.drawLine(Line(Point(p2.x, p1.y), p2), BGCOLOR)
+        self.win.drawLine(Line(p1, Point(p2.x, p1.y)), color)  if self.tWall else  self.win.drawLine(Line(p1, Point(p2.x, p1.y)), BGCOLOR)
+        self.win.drawLine(Line(Point(p1.x, p2.y), p2), color)  if self.bWall else  self.win.drawLine(Line(Point(p1.x, p2.y), p2), BGCOLOR)
     
     # def draw(self, x1, y1, x2, y2):
     #     self.draw(Point(x1, y1), Point(x2, y2))
