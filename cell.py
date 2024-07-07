@@ -57,9 +57,9 @@ class Cell:
     def drawMove(self, cell, undo=False):
         p1 = Point((self.p1.x+self.p2.x)/2, (self.p1.y+self.p2.y)/2)
         p2 = Point((cell.p1.x+cell.p2.x)/2, (cell.p1.y+cell.p2.y)/2)
-        color = "red"
+        color = "green"
         if undo:
-            color = "grey"
+            color = "red"
         self.win.drawLine(Line(p1, p2), color)
 
 

@@ -1,7 +1,7 @@
 from tkinter import Tk, BOTH, Canvas
 from time import sleep
 
-BGCOLOR = 'dark sea green'
+BGCOLOR = 'sky blue'
 
 class Point:
     def __init__(self, x, y):

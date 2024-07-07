@@ -32,20 +32,25 @@ def main():
 
     # c2 = Cell(w)
     # c2.all()
-    # c2.draw(Point(1125, 425), Point(1175, 475))
+    # # c2.draw(Point(1125, 425), Point(1175, 475))
+    # c2.p1 = Point(1125, 425)
+    # c2.p2 = Point(1175, 475)
     # c.drawMove(c2)
     # c3 = Cell(w)
     # c3.b()
-    # c3.draw(Point(1125, 475), Point(1175, 525))
+    # # c3.draw(Point(1125, 475), Point(1175, 525))
+    # c3.p1 = Point(1125, 475)
+    # c3.p2 = Point(1175, 525)
     # c2.drawMove(c3, True)
 
-    w = Window(1600, 900, .05)     #higher breaks == slower
+    w = Window(32*50, 32*28)     #higher breaks == slower
     # m = Maze(25, 25, 34, 62, 25, 25, w)
-    m = Maze(32, 32, 8, 8, 32, 32, w, 64)
-    # m._breakWallsRec(0, 0)
-    m.resetVisited()
-    #TODO: track down why maze doesn't draw... it's calling the draw command with what looks like good data
-    
+    # m = Maze(32, 32, 48, 26, 32, 32, w, 64, .0075)        #lucky super fast reversed neighbors?
+    m = Maze(32, 32, 48, 26, 32, 32, w, .0075)
+    if m.solve():
+        print("THE MAZE HAS BEEN SOLVED!!!")
+    else:
+        print("FAILURE!?")
 
     w.waitForClose()
 
